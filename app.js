@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes')
 // express app
 const app = express();
+const port = process.env.PORT
 
 // connect to mongo db
 const dbURI = 'mongodb+srv://asfahan:test1234@nodejs.ke3ei.mongodb.net/nodejs?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(process.env.PORT || 3000))
+    .then((result) => app.listen(port || 3000))
     //.then((result) => app.listen(3000))
     .catch(err => console.log(err));
 
